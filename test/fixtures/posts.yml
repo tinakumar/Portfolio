@@ -1,10 +1,14 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  content: 
+ta:
+  title: 'Space, the final frontier'
+  content: 'These are the adventures of the starship enterprise!'
 
-two:
-  title: MyString
-  content: 
+tb:
+  title: "Becoming a Code Fellow"
+  content: "Imagination leads to Innovation"
+
+#tc:
+  #title: 'Watching the Big Bang Theory'
+  #content: 'Makes people feel smarter.'
