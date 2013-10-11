@@ -7,6 +7,8 @@ gem 'rails', '3.2.14'
 
 gem 'sqlite3'
 
+gem 'bootstrap-sass-rails'
+
 group :development, :test do
   gem "minitest-rails"
 end
