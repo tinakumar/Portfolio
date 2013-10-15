@@ -1,14 +1,243 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tina K: Star</title>
+  <title>Tina Kumar</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<<body>
 
-<%= yield %>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+          <%= link_to "My Portfolio", root_path, class: "navbar-brand" %>
+        </div>
 
-</body>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="about.html">About Me</a></li>
+            <li><%= link_to "Blog", posts_path %></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="portfolio-1-col.html">1 Column Portfolio</a></li>
+                <li><a href="portfolio-2-col.html">2 Column Portfolio</a></li>
+                <li><a href="portfolio-3-col.html">3 Column Portfolio</a></li>
+                <li><a href="portfolio-4-col.html">4 Column Portfolio</a></li>
+                <li><a href="portfolio-item.html">Single Portfolio Item</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="blog-home-1.html">Blog Home 1</a></li>
+                <li><a href="blog-home-2.html">Blog Home 2</a></li>
+                <li><a href="blog-post.html">Blog Post</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Tina Kumar');"></div>
+            <div class="carousel-caption">
+              <h1>Portfolio Site</h1>
+            </div>
+          </div>
+          <div class="item">
+            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Blog!');"></div>
+            <div class="carousel-caption">
+              <h1>Read my latest blog post!</h1>
+            </div>
+          </div>
+          <div class="item">
+            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Contact Me');"></div>
+            <div class="carousel-caption">
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="icon-next"></span>
+        </a>
+    </div>
+
+    <div class="section">
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 col-md-4">
+            <h3 style="color:blue";><i class="icon-ok-circle"></i> Read my latest blog Post</h3>
+            <p>Here you'll find a lot of good information for newbies and beyond</p>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <h3 style="color:blue";><i class="icon-pencil"></i> View my portfolio</h3>Browse some of the cool stuff I've built
+            </p>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <h3 style="color:blue";><i class="icon-folder-open-alt"></i>About Me</h3>Learn more about me and view contact information. I'd love to hear your thoughts!
+            <p></p>
+          </div>
+        </div><!-- /.row -->
+
+      </div><!-- /.container -->
+
+    </div><!-- /.section -->
+
+    <div class="section-colored text-center">
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 style="color:blue";>Latest Blog Posts</h2>
+            <p>Just some of the things that are on my mind</p>
+            <%= yield %>
+            <hr>
+          </div>
+        </div><!-- /.row -->
+
+      </div><!-- /.container -->
+
+    </div><!-- /.section-colored -->
+
+    <div class="section">
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2>Display Some Work on the Home Page Portfolio</h2>
+            <hr>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+          </div>
+        </div><!-- /.row -->
+
+      </div><!-- /.container -->
+
+    </div><!-- /.section -->
+
+    <div class="section-colored">
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <h2>Modern Business Features Include:</h2>
+            <ul>
+              <li>Bootstrap 3 Framework</li>
+              <li>Mobile Responsive Design</li>
+              <li>Predefined File Paths</li>
+              <li>Working PHP Contact Page</li>
+              <li>Minimal Custom CSS Styles</li>
+              <li>Unstyled: Add Your Own Style and Content!</li>
+              <li>Font-Awesome fonts come pre-installed!</li>
+              <li>100% <strong>Free</strong> to Use</li>
+              <li>Open Source: Use for any project, private or commercial!</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <img class="img-responsive" src="http://placehold.it/700x450/ffffff/cccccc">
+          </div>
+        </div><!-- /.row -->
+
+      </div><!-- /.container -->
+
+    </div><!-- /.section-colored -->
+
+    <div class="section">
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <img class="img-responsive" src="http://placehold.it/700x450">
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <h2>Modern Business Features Include:</h2>
+            <ul>
+              <li>Bootstrap 3 Framework</li>
+              <li>Mobile Responsive Design</li>
+              <li>Predefined File Paths</li>
+              <li>Working PHP Contact Page</li>
+              <li>Minimal Custom CSS Styles</li>
+              <li>Unstyled: Add Your Own Style and Content!</li>
+              <li>Font-Awesome fonts come pre-installed!</li>
+              <li>100% <strong>Free</strong> to Use</li>
+              <li>Open Source: Use for any project, private or commercial!</li>
+            </ul>
+          </div>
+        </div><!-- /.row -->
+
+      </div><!-- /.container -->
+
+    </div><!-- /.section -->
+
+    <div class="container">
+
+      <div class="row well">
+        <div class="col-lg-8 col-md-8">
+          <h4>'Modern Business' is a ready-to-use, Bootstrap 3 updated, multi-purpose HTML theme!</h4>
+          <p>For more templates and more page options that you can integrate into this website template, visit Start Bootstrap!</p>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <a class="btn btn-lg btn-primary pull-right" href="http://startbootstrap.com">See More Templates!</a>
+        </div>
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <div class="container">
+
+      <hr>
+
+    </div><!-- /.container -->
+  </body>
 </html>
+
