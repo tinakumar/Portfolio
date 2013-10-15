@@ -2,7 +2,7 @@ Portfolio::Application.routes.draw do
   resources :posts
 
 
-  resources :titles
+  resources :projects
 
 
   # The priority is based upon order of creation:
