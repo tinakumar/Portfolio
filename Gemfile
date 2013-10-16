@@ -3,6 +3,8 @@ ruby '2.0.0'
 
 gem 'rails', '3.2.14'
 
+gem 'devise'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :production do
@@ -38,6 +40,8 @@ gem 'jquery-rails'
 group :test do
   gem "turn"
 end
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
