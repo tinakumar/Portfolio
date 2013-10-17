@@ -26,8 +26,8 @@ class ActionDispatch::IntegrationTest
   def sign_in_user
 
     visit new_user_session_path
-    fill in "Email", with: users(:one).email
-    fill in "Password", with: password
+    fill_in "Email", with: users(:one).email
+    fill_in "Password", with: password
     click_on "Sign In"
   end
 end
