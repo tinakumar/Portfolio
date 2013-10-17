@@ -22,4 +22,12 @@ class ActionDispatch::IntegrationTest
   include Rails.application.routes.url_helpers
   #include Capybara::RSpecMatchers
   include Capybara::DSL
+
+  def sign_in_user
+
+    visit new_user_session_path
+    fill in "Email", with: users(:one).email
+    fill in "Password", with: password
+    click_on "Sign In"
+  end
 end

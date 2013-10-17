@@ -4,10 +4,12 @@
 ta:
   title: 'Space, the final frontier'
   content: 'These are the adventures of the starship enterprise!'
+  author: one
 
 tb:
   title: "Becoming a Code Fellow"
   content: "Imagination leads to Innovation"
+  author: one
 
 #tc:
   #title: 'Watching the Big Bang Theory'
