@@ -3,8 +3,15 @@ class PostsController < ApplicationController
   # GET /posts.json
   before_filter :authenticate_user!, except: [:index, :show]
 
+
   def index
-    @posts = Post.all
+    @user = User.all
+    if current_user.role == 'editor' || 'author'
+      @posts = Post.all
+    else
+      @posts = Post.where(published: true)
+    end
+  end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,15 +44,17 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
+    authorize @post
     respond_to do |format|
       if @post.save
+        current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
@@ -59,6 +68,7 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
+    authorize @post
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -75,6 +85,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
+    authorize @post
     @post.destroy
 
     respond_to do |format|
@@ -82,4 +93,4 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
-end
+

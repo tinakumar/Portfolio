@@ -32,11 +32,11 @@ def index
     end
   end
 
-   def show
+  def show
     @project = Project.find(params[:id])
-    end
+  end
 
-    def destroy
+  def destroy
     @project = Project.find(params[:id])
     @project.destroy
 
