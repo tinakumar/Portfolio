@@ -1,15 +1,24 @@
 class CommentsController < ApplicationController
 
+  #before_filter :set_post
+
   def index
     @comments = Comment.all
   end
 
+  def show
+
+  end
+
   def new
+    @post = Post.find(params[:post_id])
     @comment = @post.comments.new
+
   end
 
   def create
-    @comment = Comment.new(params[:comment])
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new(params[:comment])
       if @comment.save
         flash[:notice] = "Comment is awaiting moderation"
         redirect_to post_path(@post)
@@ -18,4 +27,19 @@ class CommentsController < ApplicationController
       end
    end
 
+   def update
+     @comment = Comment.find(params[:id])
+     authorize @comment
+      if @comment.update_attributes(params[:comment])
+        flash[:notice] = "Comment is approved."
+      else
+        flash[:notice] = "Sorry, your comment will not be posted."
+   end
+
+#private
+
+    #def set_post
+      #@post = Post.find(params[:post_id])
+    #end
+end
 end

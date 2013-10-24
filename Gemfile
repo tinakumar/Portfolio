@@ -39,6 +39,7 @@ end
 gem 'sass-rails',   '~> 3.2.3'
 
 gem 'jquery-rails'
+gem 'strong_parameters'
 
 group :test do
   gem "turn"

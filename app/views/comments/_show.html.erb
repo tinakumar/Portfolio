@@ -1,0 +1,15 @@
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li><%= comment.content %></li>
+  <%end%>
+</ul>
+
+  <% if (current_user && policy(@comment).update?) %>
+
+    <% if @comment.approved %>
+      <%= button_to "Approve", post_comment_path(@post, @comment)%>
+    <% else %>
+      <%= button_to "Deny", [@post, @comment], method: :delete %>
+    <% end %>
+
+  <% end %>
