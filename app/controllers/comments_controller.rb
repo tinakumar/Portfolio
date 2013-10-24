@@ -1,17 +1,21 @@
 class CommentsController < ApplicationController
 
-  def create
-    @comment = Comment.new(comment_params)
-      respond_to do |format|
-      if @comment.save
-        format.html { redirect_to [@post, @comment], notice: 'Comment was successfully created.' }
-      else
-        format.html { render action: "new" }
-      end
-   end
+  def index
+    @comments = Comment.all
+  end
 
-   def show
-    redirect_to posts_path
+  def new
+    @comment = @post.comments.new
+  end
+
+  def create
+    @comment = Comment.new(params[:comment])
+      if @comment.save
+        flash[:notice] = "Comment is awaiting moderation"
+        redirect_to post_path(@post)
+      else
+        redirect_to new_post_comment_path(@post)
+      end
    end
 
 end

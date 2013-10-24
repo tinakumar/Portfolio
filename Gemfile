@@ -22,6 +22,7 @@ group :development, :test do
   gem 'sqlite3'
   gem "capybara-webkit"
   gem "launchy"
+  gem 'pry'
 end
 
 # Gems used only for assets and not required
@@ -44,7 +45,9 @@ group :test do
   gem 'simplecov', :require => false
 end
 
+gem 'omniauth-twitter'
 
+gem 'figaro'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

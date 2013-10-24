@@ -3,16 +3,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   before_filter :authenticate_user!, except: [:index, :show]
 
-
   def index
-    @user = User.all
-    if current_user.role == 'editor' || 'author'
-      @posts = Post.all
+    @posts = Post.all
+    if current_user
+      @posts = policy_scope(Post)
     else
       @posts = Post.where(published: true)
     end
-  end
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -23,6 +20,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments
 
     respond_to do |format|
       format.html # show.html.erb
@@ -93,4 +92,4 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+end

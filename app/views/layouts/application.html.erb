@@ -33,6 +33,7 @@
             <% else %>
               <li><%= link_to "Sign Up", new_user_registration_path %></li>
               <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
             <% end %>
             <li><a href="#contact">Contact</a></li>
 
@@ -247,5 +248,5 @@
 <% if alert %>
   <p class="alert alert-error"><%= alert %></p>
 <% end %>
-<%= yield %>
+
 
