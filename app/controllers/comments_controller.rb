@@ -1,28 +1,28 @@
 class CommentsController < ApplicationController
-  before_filter :set_post
-  before_filter :find_user, only: [:create]
+  #before_filter :set_post
+  #before_filter :find_user, only: [:create]
+  before_filter :load_commentable
 
   def index
-    @comments = Comment.all
+    @commentable =
+    @comments = commentable.comments
   end
 
   def show
   end
 
   def new
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.new
+    @comment = @commentable.comments.new
   end
 
   def create
-    #@post = Post.find(params[:post_id])
-    params[:comment][:author_email] = current_user.email
-    @comment = @post.comments.new(params[:comment])
+    @comment = @commentable.comments.new(params[:comment])
     if @comment.save
-      flash[:notice] = "Comment is awaiting moderation"
-      redirect_to post_path(@post)
+      redirect_to @commentable, notice: "Comment is awaiting moderation"
+    #params[:comment][:author_email] = current_user.email
     else
-      redirect_to new_post_comment_path(@post)
+      instance_variable_set("@#{resource.singularize}".to_sym, @commentable)
+      render template: "#{@resource}/show"
     end
   end
 
@@ -34,23 +34,26 @@ class CommentsController < ApplicationController
     else
       flash[:notice] = "Sorry, your comment will not be posted."
     end
-    redirect_to post_path(@post)
+    redirect_to @commentable
   end
 
 
   def destroy
-    @comment = @post.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
+    authorize @comment
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to @commentable
   end
 
   private
 
-  def set_post
-    @post = Post.find(params[:post_id])
+  def comment_params
+    params.require(:comment).permit(:author, :author_url, :author_email,
+                                    :content, :referrer, :commentable_id)
   end
 
-  def find_user
-    @author_email = current_user.email
+  def load_commentable
+    resource, id = request.path.split('/')[1,2]
+    @commentable = resource.singularize.classify.constantize.find(id)
   end
 end

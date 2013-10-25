@@ -2,5 +2,17 @@
 <p>Description: <%= @project.description %>
 <p>Technologies used: <%= @project.technologies_used %>
 
+  <h1>User Comments:</h1>
+
+  <%= render "comments/show" %>
+  <%= render 'comments/comments' %>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<p>
+ <b>Comment on this project?</b>
+  <%= render "comments/form" %>
+</p>
+
+

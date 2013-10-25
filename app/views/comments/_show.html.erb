@@ -1,14 +1,14 @@
 <ul>
-  <% @post.comments.each do |comment| %>
+  <% @commentable.comments.each do |comment| %>
     <li><%= comment.content %></li>
 
 </ul>
 
     <% if (comment.approved? == false) && policy(comment).update? %>
-      <%= button_to "Approve", [@post, comment], method: "put" %>
+      <%= button_to "Approve", polymorphic_path([@commentable, comment]), method: "put" %>
     <% end %>
     <% if policy(comment).destroy? %>
-      <%= button_to "Deny", [@post, comment], method: "delete" %>
+      <%= button_to "Deny", polymorphic_path([@commentable, comment]), method: "delete" %>
     <% end %>
 
   <% end %>
