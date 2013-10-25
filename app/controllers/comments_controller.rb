@@ -1,45 +1,49 @@
 class CommentsController < ApplicationController
-
-  #before_filter :set_post
+  before_filter :set_post
 
   def index
     @comments = Comment.all
   end
 
   def show
-
   end
 
   def new
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new
-
   end
 
   def create
-    @post = Post.find(params[:post_id])
+    #@post = Post.find(params[:post_id])
     @comment = @post.comments.new(params[:comment])
-      if @comment.save
-        flash[:notice] = "Comment is awaiting moderation"
-        redirect_to post_path(@post)
-      else
-        redirect_to new_post_comment_path(@post)
-      end
-   end
+    if @comment.save
+      flash[:notice] = "Comment is awaiting moderation"
+      redirect_to post_path(@post)
+    else
+      redirect_to new_post_comment_path(@post)
+    end
+  end
 
-   def update
-     @comment = Comment.find(params[:id])
-     authorize @comment
-      if @comment.update_attributes(params[:comment])
-        flash[:notice] = "Comment is approved."
-      else
-        flash[:notice] = "Sorry, your comment will not be posted."
-   end
+  def update
+    @comment = Comment.find(params[:id])
+    authorize @comment
+    if @comment.update_attributes(params[:comment])
+      flash[:notice] = "Comment is approved."
+    else
+      flash[:notice] = "Sorry, your comment will not be posted."
+    end
+  end
 
-#private
 
-    #def set_post
-      #@post = Post.find(params[:post_id])
-    #end
-end
+  def destroy
+    @comment = @post.comments.find(params[:id])
+    @comment.destroy
+    redirect_to post_path(@post)
+  end
+
+  private
+
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
 end

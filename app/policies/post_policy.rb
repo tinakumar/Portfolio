@@ -5,6 +5,10 @@ class PostPolicy < ApplicationPolicy
     @post = post
   end
 
+  def show?
+    scope.where(:id => post.id).exists?
+  end
+
   def create?
     user.editor? or not post.published?
   end
