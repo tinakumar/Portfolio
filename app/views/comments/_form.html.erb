@@ -17,6 +17,7 @@
   </div>
 
   <div class="actions">
+    <%= f.hidden_field :author_email, value:  current_user.email %>
     <%= f.submit %>
   </div>
 <% end %>

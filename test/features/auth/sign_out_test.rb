@@ -9,7 +9,7 @@ feature "Allows new users to Sign Up" do
 
     click_on "Sign Out"
 
-    page.must_text_must_include "Success"
+    page.must_have_content "Success"
     page.must_have_content "Sign Out"
     page.wont_have_content "error!"
 

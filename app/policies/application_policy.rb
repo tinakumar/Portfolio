@@ -1,9 +1,9 @@
 class ApplicationPolicy
-  attr_reader :user, :post
+  attr_reader :user, :record
 
-  def initialize(user, post)
+  def initialize(user, record)
     @user = user
-    @post = post
+    @record = record
   end
 
   def editor
@@ -15,11 +15,11 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => post.id).exists?
+    scope.where(:id => record.id).exists?
   end
 
   def create?
-    user.editor? or not post.published?
+    #user.editor? or not post.published?
   end
 
   def new?

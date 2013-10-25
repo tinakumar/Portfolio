@@ -1,28 +1,32 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-#ta:
-  #title: 'Space, the final frontier'
-  #content: 'These are the adventures of the starship enterprise!'
-  #author: one
-
-#tb:
-  #title: "Becoming a Code Fellow"
-  #content: "Imagination leads to Innovation"
-  #author: one
-
-#tc:
-  #title: 'Watching the Big Bang Theory'
-  #content: 'Makes people feel smarter.'
-
-one:
-  email: user@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-  role: editor
+ta:
+  title: 'Space, the final frontier'
+  content: 'These are the adventures of the starship enterprise!'
+  author: one
   published: true
 
-two:
-  email: user2@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-  role: author
+tb:
+  title: "Becoming a Code Fellow"
+  content: "Imagination leads to Innovation"
+  author: three
   published: true
+
+tc:
+  title: 'Watching the Big Bang Theory'
+  content: 'Makes people feel smarter.'
+  author: two
+  published: true
+
+#one:
+  #email: user@example.com
+  #encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  #role: editor
+  #published: true
+
+#two:
+  #email: user2@example.com
+  #encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  #role: author
+  #published: true

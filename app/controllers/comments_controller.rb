@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :set_post
+  before_filter :find_user, only: [:create]
 
   def index
     @comments = Comment.all
@@ -15,6 +16,7 @@ class CommentsController < ApplicationController
 
   def create
     #@post = Post.find(params[:post_id])
+    params[:comment][:author_email] = current_user.email
     @comment = @post.comments.new(params[:comment])
     if @comment.save
       flash[:notice] = "Comment is awaiting moderation"
@@ -32,6 +34,7 @@ class CommentsController < ApplicationController
     else
       flash[:notice] = "Sorry, your comment will not be posted."
     end
+    redirect_to post_path(@post)
   end
 
 
@@ -45,5 +48,9 @@ class CommentsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:post_id])
+  end
+
+  def find_user
+    @author_email = current_user.email
   end
 end

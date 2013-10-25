@@ -6,7 +6,6 @@ feature "Allows new users to Sign Up" do
     click_on "Sign In"
     fill_in "Email", with: "wonder@woman.com"
     fill_in "Password", with: "ironman"
-    fill_in "Password confirmation", with: "ironman"
     click_on "Sign In"
 
     page.wont_have_content "error!"
@@ -23,7 +22,7 @@ feature "Allows new users to Sign Up" do
                             uid: '12345',
                             info: { nickname: 'test_twitter_user'},
                             })
-   click_on "Sign in with Twitter"
+   click_on "Sign in with Twitter".first
    save_and_open_page
    page.must_have_content "test_twitter_user, you are signed in!"
   end
