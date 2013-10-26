@@ -1,0 +1,23 @@
+five:
+  author_email: mom@gmail.com
+  content: Talking to my mother
+  commentable: hey_project (Project)
+  approved: false
+
+ten:
+  author_email: ghost@gmail.com
+  content: Halloween is coming
+  commentable: boo_post (Post)
+  approved: true
+
+six:
+  author_email: party@gmail.com
+  content: Ready for the weekend
+  commentable: friday_project (Project)
+  approved: true
+
+twenty:
+  author_email: sunny@gmail.com
+  content: Waiting for the sun
+  commentable: sun_post (Post)
+  approved: false
