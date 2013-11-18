@@ -7,6 +7,10 @@ gem 'devise'
 
 gem 'pundit'
 
+gem 'carrierwave'
+
+gem "postmarkdown"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :production do
@@ -14,7 +18,9 @@ group :production do
   gem 'pg'
 end
 
-gem 'bootstrap-sass-rails'
+gem 'therubyracer'
+gem 'twitter-bootswatch-rails', :git => 'git://github.com/scottvrosenthal/twitter-bootswatch-rails.git'
+gem 'twitter-bootswatch-rails-helpers'
 
 group :development, :test do
   gem "minitest-rails"

@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
   belongs_to :author, class_name: "User"
   has_many :comments, as: :commentable, dependent: :destroy
 
+  mount_uploader :avatar, AvatarUploader
+
   scope :published, where(published: true)
 
   def publish!
@@ -21,5 +23,12 @@ class Post < ActiveRecord::Base
 
   def editor?
     role == 'editor'
+  end
+
+    before_create :make_slug
+  private
+
+  def make_slug
+    self.slug = self.name.downcase.gsub(/[^a-z1-9]+/, '-').chomp('-')
   end
 end

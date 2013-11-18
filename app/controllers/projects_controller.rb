@@ -14,21 +14,19 @@ def index
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @project }
+      format.js
     end
   end
 
-  def create
-    @project = Project.new(params[:project])
+   def edit
+    @project = Project.find(params[:id])
+  end
 
+  def create
+    @project = Project.create!(params[:project])
     respond_to do |format|
-      if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render json: @project, status: :created, location: @project }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+        format.js
     end
   end
 
@@ -45,7 +43,7 @@ def index
 
     respond_to do |format|
       format.html { redirect_to projects_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 

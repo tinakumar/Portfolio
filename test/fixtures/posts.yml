@@ -19,6 +19,11 @@ tc:
   author: two
   published: true
 
+ts:
+  title: 'Watching the Big Bang Theory'
+  content: 'Makes people feel smarter.'
+
+
 #one:
   #email: user@example.com
   #encrypted_password: <%= User.new.send(:password_digest, 'password') %>

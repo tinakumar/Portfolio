@@ -1,4 +1,6 @@
 Portfolio::Application.routes.draw do
+  postmarkdown :as => :blog, permalink_format: :slug
+
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 

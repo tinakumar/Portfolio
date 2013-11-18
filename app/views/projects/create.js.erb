@@ -1,0 +1,4 @@
+$('#new_link').fadeIn()
+$('#new_project').fadeOut().remove()
+//show new project
+$('.project:last').after('<%= j render(@project) %>')
