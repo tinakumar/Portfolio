@@ -7,26 +7,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-          <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-      <%= link_to "My Portfolio", root_path, class: "navbar-brand" %>
-        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav navbar-right">
+      <%= link_to "My Portfolio", root_path, class: "navbar-brand" %>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
 
             <li><%= link_to "Blog", posts_path %></li>
             <li><%= link_to "Projects", projects_path %></li>
+
             <% if current_user.present? %>
               <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "Sign Up", new_user_registration_path %></li>
               <li><%= link_to "Sign In", new_user_session_path %></li>
             <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+            <li><%= link_to "Contact", root_path %></li>
             <% end %>
-            <li><a href="#contact">Contact</a></li>
-
-              <ul class="dropdown-menu">
+            <ul class="dropdown-menu">
                 <li><a href="portfolio-1-col.html">1 Column Portfolio</a></li>
                 <li><a href="portfolio-2-col.html">2 Column Portfolio</a></li>
                 <li><a href="portfolio-3-col.html">3 Column Portfolio</a></li>
@@ -34,9 +33,7 @@
                 <li><a href="portfolio-item.html">Single Portfolio Item</a></li>
               </ul>
             </li>
-
-
-          </ul>
+           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
     </nav>
