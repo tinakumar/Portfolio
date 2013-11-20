@@ -18,7 +18,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.editor? && !post.published?
+    user.editor?
   end
 
   class Scope < Struct.new(:user, :scope)

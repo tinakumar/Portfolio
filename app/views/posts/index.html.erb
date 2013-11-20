@@ -21,6 +21,11 @@
         <td><%=l post.created_at %></td>
         <td>
 <br />
+        <% if (current_user && policy(post).update?) && !post.published %>
+          <%= link_to t('.publish', :default => t("helpers.links.publish")),
+                      edit_post_path(post), :class => 'btn btn-mini btn-info' %>
+        <% end %>
+
         <%= link_to t('.show', :default => t("helpers.links.show")),
                       post_path(post), :class => 'btn btn-mini btn-success' %>
 

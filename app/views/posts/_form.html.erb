@@ -13,10 +13,7 @@
   </div>
   <br>
   <p><%= f.file_field :avatar %></p>
-  <p>
-    <%= f.label :remote_avatar_url, "or image URL" %>
-    <%= f.text_field :remote_avatar_url %>
-  </p>
+
   <% if policy(@post).update? %>
   <div class="control-group">
     <%= f.label :published %>
@@ -24,7 +21,7 @@
   </div>
   <% end %>
   <div class="form-actions">
-    <button type='submit' class='btn btn-primary'>Create Post</button> %>
+    <button type='submit' class='btn btn-primary'>Create Post</button>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 posts_path, :class => 'btn' %>
   </div>
