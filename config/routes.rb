@@ -1,8 +1,7 @@
 Portfolio::Application.routes.draw do
-  postmarkdown :as => :blog, permalink_format: :slug
+  #postmarkdown :as => :blog, permalink_format: :slug
+devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
-
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
   resources :posts do
     resources :comments
@@ -12,11 +11,12 @@ Portfolio::Application.routes.draw do
     resources :comments
   end
 
-  root :to => 'home#index'
-
   get "comments/index"
 
   get "comments/new"
+
+
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

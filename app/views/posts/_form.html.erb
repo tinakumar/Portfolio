@@ -1,4 +1,4 @@
-<%= form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @post, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
@@ -11,8 +11,20 @@
       <%= f.text_area :content, :class => 'text_area' %>
     </div>
   </div>
+  <br>
+  <p><%= f.file_field :avatar %></p>
+  <p>
+    <%= f.label :remote_avatar_url, "or image URL" %>
+    <%= f.text_field :remote_avatar_url %>
+  </p>
+  <% if policy(@post).update? %>
+  <div class="control-group">
+    <%= f.label :published %>
+    <%= f.check_box :published %>
+  </div>
+  <% end %>
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <button type='submit' class='btn btn-primary'>Create Post</button> %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 posts_path, :class => 'btn' %>
   </div>

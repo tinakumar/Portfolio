@@ -8,8 +8,10 @@ gem 'devise'
 gem 'pundit'
 
 gem 'carrierwave'
-
-gem "postmarkdown"
+gem "rmagick"
+#gem 'fog'
+#gem 'carrierwave_direct'
+#gem 'sidekiq'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -57,7 +59,7 @@ gem 'omniauth-twitter'
 gem 'figaro'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

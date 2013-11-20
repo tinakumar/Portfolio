@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :content, :title, :published
+  attr_accessible :content, :title, :published, :avatar, :remote_avatar_url
 
   belongs_to :author, class_name: "User"
   has_many :comments, as: :commentable, dependent: :destroy
@@ -25,10 +25,4 @@ class Post < ActiveRecord::Base
     role == 'editor'
   end
 
-    before_create :make_slug
-  private
-
-  def make_slug
-    self.slug = self.name.downcase.gsub(/[^a-z1-9]+/, '-').chomp('-')
-  end
 end
