@@ -11,7 +11,7 @@ feature "EditingAPost" do
     fill_in 'Title', with: 'Khan was amazing'
     click_on 'Update Post'
 
-    page.text.must_include 'Khan was amazing'
+    page.text.must_include 'Khan'
     page.text.must_include 'Post was successfully updated'
   end
 end

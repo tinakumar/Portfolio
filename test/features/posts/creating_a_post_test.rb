@@ -8,10 +8,10 @@ feature "CreatingAPost" do
     fill_in "Password", with: "ironman"
     click_on "Sign In"
     visit new_post_path
-    fill_in 'Title', with: posts(:ta).title
-    fill_in 'Content', with: posts(:ta).content
+    fill_in 'Title', with: "Hello"
+    fill_in 'Content', with: "Superheros rock"
     click_on 'Create Post'
-    page.text.must_include posts(:ta).title
+    page.text.must_include "Hello"
     page.text.must_include 'Post was successfully created'
 
   end

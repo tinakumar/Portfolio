@@ -39,9 +39,9 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.5)
     ansi (1.4.3)
-    arel (3.0.2)
+    arel (3.0.3)
     atomic (1.1.14)
-    bcrypt-ruby (3.1.2)
+    bcrypt-ruby (3.0.1)
     builder (3.0.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -65,7 +65,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     commonjs (0.2.7)
-    devise (3.2.0)
+    devise (3.2.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -77,9 +77,6 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    gravtastic (3.2.6)
-    haml (4.0.4)
-      tilt
     hashie (2.0.5)
     hike (1.2.3)
     i18n (0.6.5)
@@ -88,10 +85,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
-    kaminari (0.14.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
-    launchy (2.3.0)
+    launchy (2.4.0)
       addressable (~> 2.3)
     less (2.4.0)
       commonjs (~> 0.2.7)
@@ -137,13 +131,6 @@ GEM
     orm_adapter (0.5.0)
     pg (0.17.0)
     polyglot (0.3.3)
-    postmarkdown (0.0.7)
-      gravtastic
-      haml (>= 3.1, < 5)
-      kaminari
-      nokogiri
-      rails (~> 3.1)
-      rdiscount
     pry (0.9.12.3)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -178,10 +165,10 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.1.0)
-    rdiscount (2.1.7)
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rmagick (2.13.2)
     sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -193,7 +180,7 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
-    slop (3.4.6)
+    slop (3.4.7)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -231,6 +218,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   capybara-webkit
   carrierwave
   coffee-rails (~> 3.2.1)
@@ -242,11 +230,11 @@ DEPENDENCIES
   minitest-rails-capybara
   omniauth-twitter
   pg
-  postmarkdown
   pry
   pundit
   rails (= 3.2.14)
   rails_12factor
+  rmagick
   sass-rails (~> 3.2.3)
   simplecov
   sqlite3
