@@ -9,7 +9,8 @@ gem 'pundit'
 
 gem 'carrierwave'
 gem "rmagick"
-#gem 'fog'
+gem 'fog'
+gem 'unf'
 #gem 'carrierwave_direct'
 #gem 'sidekiq'
 
