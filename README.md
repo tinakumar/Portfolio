@@ -1,13 +1,21 @@
 [![Build Status](https://travis-ci.org/tinakumar/Portfolio.png?branch=master)](https://travis-ci.org/tinakumar/Portfolio)
 
-Welcome to Portfolio app.
+Welcome to My personal Portfolio app.
 
 Build your online presence with this simple app! It's main purpose is to provide an intuitive way for professionals to create an online portfolio to display projects, as well as blog posts and other information.
 
 Simple to use. Step by step instructions coming soon!
 
-For now you can clone this repo by entering this in terminal:
+Fixed time display for created at:
 
-git clone https://github.com/tinakumar/Portfolio.git
+![Portfolio](/public/images/time_formatted.png)
+
+Added simpleform:
+
+![Portfolio](/public/images/simple form.png)
+
+Added time zone choice for users:
+
+![Portfolio](/public/images/added_time_zones.png)
 
 
