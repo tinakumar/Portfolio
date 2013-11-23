@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :name, :uid, :provider
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :name, :uid, :provider, :time_zone
   # attr_accessible :title, :body
   has_many :posts, foreign_key: "author_id"
+  validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|

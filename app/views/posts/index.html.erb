@@ -9,8 +9,6 @@
       <th style="text-align: center;"><%= model_class.human_attribute_name(:title) %></th>
       <th style="text-align: center;"><%= model_class.human_attribute_name(:content) %></th>
       <th style="text-align: center;"><%= model_class.human_attribute_name(:created_at) %></th>
-
-
     </tr>
   </thead>
   <tbody>
@@ -18,7 +16,7 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
-        <td><%=l post.created_at %></td>
+        <td><%= post.created_at.strftime('%B %e %Y %l:%m %p') %></td>
         <td>
 <br />
         <% if (current_user && policy(post).update?) && !post.published %>

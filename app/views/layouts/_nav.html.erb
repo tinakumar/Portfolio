@@ -17,14 +17,17 @@
             <li><%= link_to "Blog", posts_path %></li>
             <li><%= link_to "Projects", projects_path %></li>
 
-            <% if current_user.present? %>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-            <% else %>
+        <% if current_user.present? %>
+          <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+
+
+        <% else %>
               <li><%= link_to "Sign Up", new_user_registration_path %></li>
               <li><%= link_to "Sign In", new_user_session_path %></li>
             <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
             <li><%= link_to "Contact", root_path %></li>
-            <% end %>
+        <% end %>
             <ul class="dropdown-menu">
                 <li><a href="portfolio-1-col.html">1 Column Portfolio</a></li>
                 <li><a href="portfolio-2-col.html">2 Column Portfolio</a></li>

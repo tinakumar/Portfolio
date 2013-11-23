@@ -24,6 +24,7 @@ end
 gem 'therubyracer'
 gem 'twitter-bootswatch-rails', :git => 'git://github.com/scottvrosenthal/twitter-bootswatch-rails.git'
 gem 'twitter-bootswatch-rails-helpers'
+gem 'simple_form'
 
 group :development, :test do
   gem "minitest-rails"

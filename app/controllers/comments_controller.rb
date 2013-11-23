@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   #before_filter :set_post
   #before_filter :find_user, only: [:create]
+  before_filter :authenticate_user!, except: [:index, :show]
   before_filter :load_commentable
 
   def index
