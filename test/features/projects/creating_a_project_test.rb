@@ -1,6 +1,6 @@
 require "test_helper"
 
-feature "CreatingAProject" do
+feature "CreatingAProject", js: true do
   scenario "adding a new project to the portfolio" do
     visit new_project_path
 
