@@ -6,6 +6,16 @@ Build your online presence with this simple app! It's main purpose is to provide
 
 Simple to use. Step by step instructions coming soon!
 
+Checked security possible threats with Brakeman. Before fixing:
+
+![Portfolio](/public/images/brakeman before.png)
+
+After fixing:
+
+![Portfolio](/public/images/brakeman after.png)
+
+Thanks, brakeman! :)
+
 Fixed time display for created at:
 
 ![Portfolio](/public/images/time_formatted.png)
