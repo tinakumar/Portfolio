@@ -25,7 +25,7 @@ def index
   end
 
   def create
-    @project = Project.create!(params[:project])
+    @project = Project.new(params[:project])
     respond_to do |format|
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.js
